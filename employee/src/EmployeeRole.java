@@ -4,6 +4,7 @@ import java.io.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
@@ -42,6 +43,46 @@ public class EmployeeRole {
     }
 
     public boolean purchaseProduct(String customerSSN, String productID, LocalDate purchaseDate){
-        
+        List<String> lines = new ArrayList<String>();
+        try(BufferedReader br = new BufferedReader(new FileReader("Products.txt"))){
+            String line;
+            while((line = br.readLine()) != null){
+                String[] words = line.trim().split("\\s*,\\s*");
+                if(productID.equals(words[0]) && Integer.parseInt(words[4]) == 0){
+                    lines.add(line);
+                    br.close();         //may cause an issue be carefull
+                    return false;
+                }
+                else if(productID.equals(words[0])){
+                    int quantity = Integer.parseInt(words[4]);
+                    --quantity;
+                    words[4] = Integer.toString(quantity);
+                    line = String.join(",", words);
+                    lines.add(line);
+                }
+                else{
+                    lines.add(line);
+                }
+            }
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("Products.txt"))) {
+                for (int i = 0; i < lines.size(); i++) {
+                    bw.write(lines.get(i));
+                    bw.newLine();
+                }
+            } catch (IOException e) {
+                System.out.println("Error in opening Products file(from employee role fourth method)");
+            }
+        }catch(IOException e){
+            System.out.println("Error in opening Products file(from employee role fourth method)");
+        }
+
+        String formattedDate = String.format("%02d-%02d-%04d", purchaseDate.getDayOfMonth(), purchaseDate.getMonthValue(), purchaseDate.getYear());
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt",true))){
+            bw.write(customerSSN + "," + productID + "," + formattedDate + ",false");
+            bw.newLine();
+        }catch(IOException e){
+            System.out.println("Error in opening CustomersProducts file(from employee role fourth method)");
+        }
+        return true;
     }
 }
