@@ -1,3 +1,6 @@
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
@@ -8,9 +11,12 @@ public class EmployeeRole {
     }
 
     public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity){
-        //add to the array list
-        productsDatabase.insertRecord(productsDatabase.createRecordFrom(productsDatabase.lineRepresentation()));
         //add to the file
         productsDatabase.saveToFile();
+    }
+
+    public Product[] getListOfProducts(){
+        Arraylist<Product> ProductsInFile = new ArrayList<Product>();
+        
     }
 }
