@@ -36,6 +36,6 @@ public class EmployeeRole {
         }catch(IOException e){
             System.out.println("error in reading from file(from employee role 3rd method)");
         }
-        return null;
+        return new CustomerProduct[0];
     }
 }
