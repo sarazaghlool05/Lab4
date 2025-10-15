@@ -9,7 +9,7 @@ public class EmployeeRole {
 
     public EmployeeRole() {
         productsDatabase = new ProductDatabase("Products.txt");
-        customerProductDatabase = new CustomerProductDatabase("customerProducts.txt");
+        customerProductDatabase = new CustomerProductDatabase("CustomersProducts.txt");
         productsDatabase.readFromFile();
         customerProductDatabase.readFromFile();
     }
