@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args){
+
         Scanner sc = new Scanner(System.in);
+        /*
         System.out.print("enter the product ID:");
         String productID = sc.nextLine();
         System.out.print("enter the product name:");
@@ -16,7 +18,15 @@ public class Test {
         System.out.print("enter the product price:");
         float price = sc.nextFloat();
 
-        EmployeeRole e = new EmployeeRole();
+
         e.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
+        */
+
+        EmployeeRole e = new EmployeeRole();
+
+        Product[] p = e.getListOfProducts();
+        for(int i = 0; i < p.length; i++){
+            System.out.println(p[i].toString());
+        }
     }
 }

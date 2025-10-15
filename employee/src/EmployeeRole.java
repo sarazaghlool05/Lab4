@@ -31,11 +31,12 @@ public class EmployeeRole {
     public Product[] getListOfProducts(){
         ArrayList<Product> products = new ArrayList<Product>();
         try(BufferedReader br = new BufferedReader(new FileReader("Products.txt"))){
-            String line = br.readLine();
+            String line;
             while((line = br.readLine()) != null){
                 String[] words = line.trim().split("\\s*,\\s*");
                 Product p = new Product(words[0], words[1], words[2], words[3], Integer.parseInt(words[4]), Float.parseFloat(words[5]));
                 products.add(p);
+                System.out.println("new item added successfully");
             }
         }catch(IOException e){
             System.out.println("Error in reading from file(from class EmployeeRole)");
