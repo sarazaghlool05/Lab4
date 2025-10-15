@@ -1,3 +1,4 @@
+//written by sara zaghlool on wednesday 15/10
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
