@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
-public class ProductDatabase {
-    ArrayList<Product> products;
+public class ProductDatabase extends Product{
+    ArrayList<Product> records;
+
     public void readFromFile() {
         //code
     }
