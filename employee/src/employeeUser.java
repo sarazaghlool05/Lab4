@@ -1,15 +1,21 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class employeeUser {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        private String employeeId;
+        private String Name;
+        private String Email;
+        private String Address;
+        private String PhoneNumber;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+    public employeeUser(String employeeId, String name, String email, String address, String phoneNumber) {
+        this.employeeId = employeeId;
+        Name = name;
+        Email = email;
+        Address = address;
+        PhoneNumber = phoneNumber;
+    }
+    public String lineRepresentation(){
+        return employeeId+","+Name+","+Email+","+Address+","+PhoneNumber;
+    }
+    public String getSearchKey(){
+        return employeeId;
     }
 }
