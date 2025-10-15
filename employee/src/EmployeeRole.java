@@ -1,6 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
@@ -15,6 +14,7 @@ public class EmployeeRole {
         customerProductDatabase.readFromFile();
     }
 
+    //adding a new product to the file
     public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity, float price) {
         //ask why the price is not included in the function on the lab4 pdf
 
@@ -23,7 +23,27 @@ public class EmployeeRole {
             bw.newLine();
             System.out.println("item added successfully");
         }catch(IOException e){
-            System.out.println("Error in adding product to file");
+            System.out.println("Error in adding product to file(from class EmployeeRole)");
         }
+    }
+
+    //making a new array filled with all products in the files
+    public Product[] getListOfProducts(){
+        ArrayList<Product> products = new ArrayList<Product>();
+        try(BufferedReader br = new BufferedReader(new FileReader("Products.txt"))){
+            String line = br.readLine();
+            while((line = br.readLine()) != null){
+                String[] words = line.trim().split("\\s*,\\s*");
+                Product p = new Product(words[0], words[1], words[2], words[3], Integer.parseInt(words[4]), Float.parseFloat(words[5]));
+                products.add(p);
+            }
+        }catch(IOException e){
+            System.out.println("Error in reading from file(from class EmployeeRole)");
+        }
+        Product[] productArray = new Product[products.size()];
+        for(int i = 0; i < products.size(); i++){
+            productArray[i] = products.get(i);
+        }
+        return productArray;
     }
 }
