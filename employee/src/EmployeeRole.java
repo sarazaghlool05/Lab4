@@ -11,14 +11,14 @@ public class EmployeeRole {
 
     public EmployeeRole() {
         productsDatabase = new ProductDatabase("Products.txt");
-        customerProductDatabase = new CustomerProductDatabase("customerProducts.txt");
+        customerProductDatabase = new CustomerProductDatabase("customersProducts.txt");
         productsDatabase.readFromFile();
         customerProductDatabase.readFromFile();
     }
 
     public CustomerProduct[] getListOfPurchasingOperations(){
         ArrayList<CustomerProduct> purchasedProducts = new ArrayList<CustomerProduct>();
-        try(BufferedReader br = new BufferedReader(new FileReader("CustomerProducts.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("CustomersProducts.txt"))){
             String line;
             while((line = br.readLine()) != null){
                 String[] words = line.trim().split("\\s*,\\s*");
