@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class ProductDatabase extends Product{
     ArrayList<Product> records;
 
+    public ProductDatabase(String filename){
+        //code
+    }
+
     public void readFromFile() {
         //code
     }
