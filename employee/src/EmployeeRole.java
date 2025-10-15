@@ -1,3 +1,5 @@
+//written by sara zaghlool on wednesday 15/10
+
 import java.io.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -37,5 +39,9 @@ public class EmployeeRole {
             System.out.println("error in reading from file(from employee role 3rd method)");
         }
         return new CustomerProduct[0];
+    }
+
+    public boolean purchaseProduct(String customerSSN, String productID, LocalDate purchaseDate){
+        
     }
 }
