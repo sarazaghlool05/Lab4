@@ -44,6 +44,7 @@ public class EmployeeRole {
 
     public boolean purchaseProduct(String customerSSN, String productID, LocalDate purchaseDate){
         List<String> lines = new ArrayList<String>();
+        int flag = 0;
         try(BufferedReader br = new BufferedReader(new FileReader("Products.txt"))){
             String line;
             while((line = br.readLine()) != null){
@@ -59,6 +60,7 @@ public class EmployeeRole {
                     words[4] = Integer.toString(quantity);
                     line = String.join(",", words);
                     lines.add(line);
+                    flag = 1;
                 }
                 else{
                     lines.add(line);
@@ -75,14 +77,17 @@ public class EmployeeRole {
         }catch(IOException e){
             System.out.println("Error in opening Products file(from employee role fourth method)");
         }
-
-        String formattedDate = String.format("%02d-%02d-%04d", purchaseDate.getDayOfMonth(), purchaseDate.getMonthValue(), purchaseDate.getYear());
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt",true))){
-            bw.write(customerSSN + "," + productID + "," + formattedDate + ",false");
-            bw.newLine();
-        }catch(IOException e){
-            System.out.println("Error in opening CustomersProducts file(from employee role fourth method)");
+        if(flag == 1){
+            String formattedDate = String.format("%02d-%02d-%04d", purchaseDate.getDayOfMonth(), purchaseDate.getMonthValue(), purchaseDate.getYear());
+            try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt",true))){
+                bw.write(customerSSN + "," + productID + "," + formattedDate + ",false");
+                bw.newLine();
+            }catch(IOException e){
+                System.out.println("Error in opening CustomersProducts file(from employee role fourth method)");
+            }
+            return true;
         }
-        return true;
+        System.out.println("item not found");
+        return false;
     }
 }
