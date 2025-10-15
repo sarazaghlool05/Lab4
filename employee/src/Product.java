@@ -1,3 +1,2 @@
 public class Product {
-    //code
 }

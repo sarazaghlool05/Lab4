@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 
-public class ProductDatabase {
-    ArrayList<Product> products;
+public class ProductDatabase extends Product{
+    ArrayList<Product> records;
+
+    public ProductDatabase(String filename){
+        int pro;
+        int ductNumber = 0;
+        //code
+    }
+
     public void readFromFile() {
         //code
     }
