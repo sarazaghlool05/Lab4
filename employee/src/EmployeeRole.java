@@ -41,6 +41,10 @@ public class EmployeeRole {
         }catch(IOException e){
             System.out.println("error in opening file (from employee role method 6)");
         }
+        if(!flag){
+            System.out.println("No matching unpaid record found or payment already done.");
+            return flag;
+        }
         try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt"))){
             for(int i = 0; i < lines.size(); i++){
                 bw.write(lines.get(i));
