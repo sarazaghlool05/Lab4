@@ -16,7 +16,7 @@ public class EmployeeUserDatabase {
     }
 
     public void readFromFile(){
-        records.clear(); //if i call the function more than once i start with an empty list
+        records.clear(); //if I call the function more than once I start with an empty list
 
         try{
             File file = new File(filename);
