@@ -55,4 +55,10 @@ public class EmployeeRole {
         }
         return flag;
     }
+
+    public void logout() {
+        //we will need it in part 2
+        System.out.println("All data already saved. Logging out.");
+    }
+
 }
