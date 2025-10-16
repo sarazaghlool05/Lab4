@@ -1,11 +1,12 @@
-public class employeeUser {
+//written by Sara Mohamed on wednesday 10/15/2025 @3pm
+public class EmployeeUser {
         private String employeeId;
         private String Name;
         private String Email;
         private String Address;
         private String PhoneNumber;
 
-    public employeeUser(String employeeId, String name, String email, String address, String phoneNumber) {
+    public EmployeeUser(String employeeId, String name, String email, String address, String phoneNumber) {
         this.employeeId = employeeId;
         Name = name;
         Email = email;
