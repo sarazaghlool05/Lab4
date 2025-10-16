@@ -42,7 +42,7 @@ public class EmployeeRole {
         }catch (IOException e) {
             System.out.println("error in reading from file(from employee role 5th method)");
         }
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt", true))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("CustomersProducts.txt"))){
             for (int i = 0; i < linesC.size(); i++) {
                 bw.write(linesC.get(i));
                 bw.newLine();
@@ -66,7 +66,9 @@ public class EmployeeRole {
                         line = String.join(",",words);
                         lines.add(line);
                     }
-                    lines.add(line);
+                    else{
+                        lines.add(line);
+                    }
                 }
             } catch (IOException e) {
                 System.out.println("error in reading from file(from employee role 5th method)");
