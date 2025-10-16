@@ -1,20 +1,20 @@
 //written by Sara Mohamed on wednesday 10/15/2025 @3pm
 public class EmployeeUser{
         private String employeeId;
-        private String Name;
-        private String Email;
-        private String Address;
-        private String PhoneNumber;
+        private String name;
+        private String email;
+        private String address;
+        private String phoneNumber;
 
     public EmployeeUser(String employeeId, String name, String email, String address, String phoneNumber) {
         this.employeeId = employeeId;
-        Name = name;
-        Email = email;
-        Address = address;
-        PhoneNumber = phoneNumber;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
     public String lineRepresentation(){
-        return employeeId+","+Name+","+Email+","+Address+","+PhoneNumber;
+        return employeeId+","+name+","+email+","+address+","+phoneNumber;
     }
     public String getSearchKey(){
         return employeeId;
