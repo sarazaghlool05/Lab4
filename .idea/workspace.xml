@@ -49,8 +49,9 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "AdminRole",
-    "kotlin-language-version-configured": "true"
+    "git-widget-placeholder": "employee__role",
+    "kotlin-language-version-configured": "true",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="TaskManager">
