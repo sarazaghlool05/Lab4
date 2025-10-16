@@ -6,7 +6,7 @@ public class CustomerProduct {
     private String productID;
     private LocalDate purchaseDate;
     private boolean paid;
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public CustomerProduct(String customerSSN, String productID, LocalDate purchaseDate) {
         this.customerSSN = customerSSN;
