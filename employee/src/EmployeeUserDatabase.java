@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,13 +35,76 @@ public class EmployeeUserDatabase {
 
     public EmployeeUser createRecordFrom(String line){
         String[] parts = line.split(",");
+        if(parts.length != 5){
+            return null;
+        }
         String employeeId = parts[0];
         String name = parts[1];
         String email = parts[2];
         String address = parts[3];
         String phoneNumber = parts[4];
 
-        EmployeeUser employee = new EmployeeUser(employeeId,name,email,address,phoneNumber);
+        EmployeeUser employee = new EmployeeUser(employeeId, name, email, address, phoneNumber);
         return employee;
     }
+
+    public ArrayList<EmployeeUser> returnAllRecords(){
+        return records;
+    } //is a getter for records
+
+    public boolean contains(String key ){
+        for (int i = 0; i < records.size(); i++){
+            EmployeeUser employee = records.get(i);
+            if(employee.getSearchKey().equals(key)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public EmployeeUser getRecord(String key){
+        for (int i = 0; i < records.size(); i++){
+            EmployeeUser employee = records.get(i);
+            if(employee.getSearchKey().equals(key)){
+                return employee;
+            }
+        }
+        return null;
+    }
+
+    public void insertRecord(EmployeeUser record){
+        if(contains(record.getSearchKey())){
+            System.out.println("Employee with this id already exists");
+        }
+        else{
+            records.add(record);
+            System.out.println("Employee added successfully");
+        }
+    }
+
+    public void deleteRecord(String key){
+        for (int i = 0; i < records.size(); i++) {
+            EmployeeUser employee = records.get(i);
+            if (employee.getSearchKey().equals(key)) {
+                records.remove(i);
+                System.out.println("Employee deleted");
+                return; //doesn't keep searching after deletion
+            }
+        }
+        System.out.println("Employee with this id doesn't exists");
+    }
+
+    public void saveToFile(){
+        try (FileWriter writer = new FileWriter(filename, false)){ //automatically closes writer
+            for (int i = 0; i < records.size(); i++) {                    //false: overwrite file
+                EmployeeUser employee = records.get(i);
+                writer.write(employee.lineRepresentation());
+                writer.write("\n");
+            }
+            System.out.println("File saved successfully");
+        } catch (IOException e) {
+            System.out.println("Error while saving file");
+        }
+    }
+
 }
