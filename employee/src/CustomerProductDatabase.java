@@ -1,8 +1,9 @@
 public class CustomerProductDatabase {
-    public void readFromFile(){
-        //code
+    //place holder
+    public CustomerProductDatabase(String n){
+
     }
-    public CustomerProductDatabase(String filename){
-        //constractor
+    public void readFromFile(){
+
     }
 }
