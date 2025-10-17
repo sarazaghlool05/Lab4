@@ -9,6 +9,16 @@ public class Testing {
         Scanner sc = new Scanner(System.in);
         System.out.print("Are you an Admin or an Employee? ");
         String user = sc.nextLine();
+        UserRole role;
+        if (user.equalsIgnoreCase("Admin")) {
+            role = new AdminRole();
+        } else if (user.equalsIgnoreCase("Employee")) {
+            role = new EmployeeRole();
+        } else {
+            System.out.println("Unfound user");
+            return;
+        }
+
         if(user.equalsIgnoreCase("Admin")){
             AdminRole admin = new AdminRole();
             //print out a menu for the admin role user
@@ -44,7 +54,7 @@ public class Testing {
                         admin.removeEmployee(id);
                         break;
                     case "4":
-                        admin.logout();
+                        role.logout();
                         System.exit(0);
                         break;
                     default:
@@ -132,7 +142,7 @@ public class Testing {
                         System.out.println("Payment: " + payment);
                         break;
                     case "7":
-                        employee.logout();
+                        role.logout();
                         System.exit(0);
                         break;
                     default:
