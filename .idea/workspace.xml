@@ -4,15 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f92379d-61ca-48cc-be6e-0018fdebb14b" name="Changes" comment="" />
+    <list default="true" id="5f92379d-61ca-48cc-be6e-0018fdebb14b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/employee/src/Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/CustomerProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/CustomerProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/EmployeeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/EmployeeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/Product.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "tadding__interface",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="TaskManager">
     <servers />
   </component>

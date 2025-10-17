@@ -1,5 +1,5 @@
 //written by Bassant on wednesday 10/15/2025 @11:35
-public class Product {
+public class Product implements Record {
     private String  productID;
     private String productName;
     private String manufacturerName;
@@ -43,9 +43,11 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    @Override
     public String lineRepresentation(){
         return productID+","+productName+","+manufacturerName+","+supplierName+","+quantity+","+price;
     }
+    @Override
     public String getSearchKey(){
         return productID;
     }

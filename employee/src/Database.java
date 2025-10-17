@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
-public abstract class Database<T> {
+public abstract class Database<T extends Record> {
     protected ArrayList<T> records;
     protected String filename;
     public Database(String filename) {
