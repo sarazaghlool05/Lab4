@@ -73,9 +73,9 @@ public class EmployeeRole {
     public double returnProduct(String customerSSN, String productID, LocalDate purchaseDate , LocalDate returnDate){
         if (returnDate.isBefore(purchaseDate) || ChronoUnit.DAYS.between(purchaseDate, returnDate) > 14)
             return -1;
-
+        DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String key = customerSSN + "," + productID + "," +
-                purchaseDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                purchaseDate.format(formatter);
         CustomerProduct record = customerProductDatabase.getRecord(key);
         if (record == null) return -1;
 
