@@ -13,25 +13,6 @@ public class CustomerProductDatabase {
         this.records = new ArrayList<>();
     }
 
-    public void readFromFile() {
-        records.clear();
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-            String line;
-            boolean isEmpty = true;
-            while ((line = br.readLine()) != null) {
-                isEmpty = false;
-                CustomerProduct cp = createRecordFrom(line);
-                if (cp != null) {
-                    records.add(cp);
-                }
-            }
-            if (isEmpty) {
-                System.out.println("File is empty: " + filename);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading from file " + filename);
-        }
-    }
 
 
     public CustomerProduct createRecordFrom(String line) {
@@ -48,18 +29,6 @@ public class CustomerProductDatabase {
         return cp;
     }
 
-    public ArrayList<CustomerProduct> returnAllRecords() {
-        return records;
-    }
-
-    public boolean contains(String key) {
-        for (CustomerProduct cp : records) {
-            if (cp.getSearchKey().equals(key)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public CustomerProduct getRecord(String key) {
         for (CustomerProduct cp : records) {
@@ -70,21 +39,7 @@ public class CustomerProductDatabase {
         return null;
     }
 
-    public void insertRecord(CustomerProduct record) {
-        records.add(record);
-    }
-
-    public void deleteRecord(String key) {
-        records.removeIf(cp -> cp.getSearchKey().equals(key));
-    }
-
-    public void saveToFile() {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
-            for (CustomerProduct cp : records) {
-                pw.println(cp.lineRepresentation());
-            }
-        } catch (Exception e) {
-            System.out.println("Error saving records to " + filename);
-        }
+    protected String lineRepresentation(CustomerProduct record){
+        return record.lineRepresentation();
     }
 }

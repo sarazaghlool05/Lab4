@@ -16,6 +16,26 @@ public class Product {
         this.price=price;
     }
 
+    public String getProductID() {
+        return productID;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getManufacturerName() {
+        return manufacturerName;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
     public int getQuantity() {
         return quantity;
     }
