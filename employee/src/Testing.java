@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Testing {
@@ -14,6 +15,7 @@ public class Testing {
                 System.out.println("1.Add Employee\n2.Get List Of Employees\n3.Remove Employee\n4.Log Out");
                 System.out.print("enter your choice: ");
                 int choiceAdmin = sc.nextInt();
+                sc.nextLine();
                 switch(choiceAdmin){
                     case 1:
                         System.out.print("enter employee id: ");
@@ -53,6 +55,7 @@ public class Testing {
                 System.out.println("1.Add Product\n2.Get List Of Products\n3.Get List Of Purchasing Operations\n4.Purchase Product\n5.Return Product\n6.Apply Payment\n7.Log Out");
                 System.out.print("Enter your choice: ");
                 int choiceEmployee = sc.nextInt();
+                sc.nextLine();
                 switch(choiceEmployee){
                     case 1:
                         System.out.print("enter product id: ");
@@ -65,8 +68,10 @@ public class Testing {
                         String supplierName = sc.nextLine();
                         System.out.print("enter product quantity: ");
                         int quantity = sc.nextInt();
+                        sc.nextLine();
                         System.out.print("enter product price: ");
                         int price = sc.nextInt();
+                        sc.nextLine();
                         employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
                         break;
                     case 2:
@@ -82,7 +87,8 @@ public class Testing {
                         String purchasingProductID = sc.nextLine();
                         System.out.print("enter purchaseDate: ");
                         String date = sc.nextLine();
-                        LocalDate localDate = LocalDate.parse(date);
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                        LocalDate localDate = LocalDate.parse(date, formatter);
                         boolean purcahsing = employee.purchaseProduct(customerSSN, purchasingProductID, localDate);
                         System.out.println("purchasing: " + purcahsing);
                         break;
