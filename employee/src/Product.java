@@ -40,6 +40,26 @@ public class Product {
         return quantity;
     }
 
+    public void setProductID(String productID) {
+        this.productID = productID;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = manufacturerName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

@@ -10,7 +10,21 @@ public class EmployeeRole {
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
 
-    //do we need getters and setters?
+    public ProductDatabase getProductsDatabase() {
+        return productsDatabase;
+    }
+
+    public CustomerProductDatabase getCustomerProductDatabase() {
+        return customerProductDatabase;
+    }
+
+    public void setProductsDatabase(ProductDatabase productsDatabase) {
+        this.productsDatabase = productsDatabase;
+    }
+
+    public void setCustomerProductDatabase(CustomerProductDatabase customerProductDatabase) {
+        this.customerProductDatabase = customerProductDatabase;
+    }
 
     public EmployeeRole() {
         productsDatabase = new ProductDatabase("Products.txt");

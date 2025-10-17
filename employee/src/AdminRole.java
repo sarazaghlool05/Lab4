@@ -18,6 +18,14 @@ public class AdminRole {
         System.out.println("Employee saved to file successfully");
     }
 
+    public EmployeeUserDatabase getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(EmployeeUserDatabase database) {
+        this.database = database;
+    }
+
     public EmployeeUser[] getListOfEmployees(){
         ArrayList<EmployeeUser> records = database.returnAllRecords();
         EmployeeUser[] recordsArray = new EmployeeUser[records.size()];
