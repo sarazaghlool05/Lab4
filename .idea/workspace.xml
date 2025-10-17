@@ -64,6 +64,20 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Testing" />
+      <module name="employee" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Testing" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,6 +95,8 @@
       <updated>1760533575967</updated>
       <workItem from="1760648049178" duration="39000" />
       <workItem from="1760702266354" duration="4277000" />
+      <workItem from="1760710826336" duration="129000" />
+      <workItem from="1760710963395" duration="396000" />
     </task>
     <servers />
   </component>

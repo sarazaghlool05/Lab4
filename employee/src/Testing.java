@@ -97,8 +97,8 @@ public class Testing {
                         System.out.print("enter return date: ");
                         String returningDate = sc.nextLine();
                         LocalDate localReturningDate = LocalDate.parse(returningDate);
-                        double price = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
-                        System.out.println("price: " + price);
+                        double priceOfItem = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
+                        System.out.println("price: " + priceOfItem);
                         break;
                     case 6:
                         System.out.print("enter customerSSN: ");
