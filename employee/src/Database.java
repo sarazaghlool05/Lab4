@@ -35,10 +35,14 @@ public abstract class Database<T> {
     public void insertRecord(T record) {
         records.add(record);
     }
+
     public void deleteRecord(String key) {
         T record = getRecord(key);
-        if (record != null)
+        if (record != null) {
             records.remove(record);
+            System.out.println("Deleted successfully ");
+        }
+
         else
             System.out.println("Record not found: " + key);
     }
