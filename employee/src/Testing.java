@@ -82,9 +82,40 @@ public class Testing {
                         String purchasingProductID = sc.nextLine();
                         System.out.print("enter purchaseDate: ");
                         String date = sc.nextLine();
-                        
-                        System.out.print("enter supplier name: ");
-                        String supplierName = sc.nextLine();
+                        LocalDate localDate = LocalDate.parse(date);
+                        boolean purcahsing = employee.purchaseProduct(customerSSN, purchasingProductID, localDate);
+                        System.out.println("purchasing: " + purcahsing);
+                        break;
+                    case 5:
+                        System.out.print("enter customerSSN: ");
+                        String returnProductCustomerSSN = sc.nextLine();
+                        System.out.print("enter productID: ");
+                        String returnProductPurchasingProductID = sc.nextLine();
+                        System.out.print("enter purchase date: ");
+                        String purchasingDate = sc.nextLine();
+                        LocalDate localPurchasingDate = LocalDate.parse(purchasingDate);
+                        System.out.print("enter return date: ");
+                        String returningDate = sc.nextLine();
+                        LocalDate localReturningDate = LocalDate.parse(returningDate);
+                        double price = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
+                        System.out.println("price: " + price);
+                        break;
+                    case 6:
+                        System.out.print("enter customerSSN: ");
+                        String paymentCustomerSSN = sc.nextLine();
+                        System.out.print("enter purchase date: ");
+                        String purchasingPaymentDate = sc.nextLine();
+                        LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate);
+                        boolean payment = employee.applyPayment(paymentCustomerSSN, localPurchasingPaymentDate);
+                        System.out.println("payment: " + payment);
+                        break;
+                    case 7:
+                        employee.logout();
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("error choice not found!");
+                        break;
                 }
             }
         }
