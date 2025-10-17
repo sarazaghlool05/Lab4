@@ -35,6 +35,10 @@ public class Testing {
                         String name = sc.nextLine();
                         System.out.print("Enter employee email: ");
                         String email = sc.nextLine();
+                        if(!emailValidation(email)){
+                            System.out.println("Error! Wrong email format");
+                            break;
+                        }
                         System.out.print("Enter employee address: ");
                         String address = sc.nextLine();
                         System.out.print("Enter employee phone number: ");
@@ -155,5 +159,20 @@ public class Testing {
             System.out.println("Unfound user");
             System.exit(0);
         }
+    }
+    public static boolean emailValidation(String x) {
+        for (int i = x.length() - 1; i >= 0; i--) {
+            if (x.charAt(i) == '.') {
+
+                for (int j = i - 1; j >= 0; j--) {
+                    if (x.charAt(j) == '@') {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        return false;
     }
 }
