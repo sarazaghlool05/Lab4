@@ -99,10 +99,11 @@ public class Testing {
                         String returnProductPurchasingProductID = sc.nextLine();
                         System.out.print("enter purchase date: ");
                         String purchasingDate = sc.nextLine();
-                        LocalDate localPurchasingDate = LocalDate.parse(purchasingDate);
+                        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                        LocalDate localPurchasingDate = LocalDate.parse(purchasingDate, formatter2);
                         System.out.print("enter return date: ");
                         String returningDate = sc.nextLine();
-                        LocalDate localReturningDate = LocalDate.parse(returningDate);
+                        LocalDate localReturningDate = LocalDate.parse(returningDate, formatter2);
                         double priceOfItem = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
                         System.out.println("price: " + priceOfItem);
                         break;
@@ -111,7 +112,8 @@ public class Testing {
                         String paymentCustomerSSN = sc.nextLine();
                         System.out.print("enter purchase date: ");
                         String purchasingPaymentDate = sc.nextLine();
-                        LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate);
+                        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                        LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate, formatter3);
                         boolean payment = employee.applyPayment(paymentCustomerSSN, localPurchasingPaymentDate);
                         System.out.println("payment: " + payment);
                         break;
