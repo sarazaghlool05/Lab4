@@ -3,14 +3,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
-public class CustomerProductDatabase {
+public class CustomerProductDatabase extends Database<CustomerProduct>{
     private ArrayList<CustomerProduct> records;
     private String filename;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public CustomerProductDatabase(String filename) {
-        this.filename = filename;
-        this.records = new ArrayList<>();
+        super(filename);
+
     }
 
 
