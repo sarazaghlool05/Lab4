@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class CustomerProductDatabase extends Database<CustomerProduct>{
-    private ArrayList<CustomerProduct> records;
-    private String filename;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public CustomerProductDatabase(String filename) {
@@ -14,8 +12,8 @@ public class CustomerProductDatabase extends Database<CustomerProduct>{
     }
 
 
-
-    public CustomerProduct createRecordFrom(String line) {
+    @Override
+    protected CustomerProduct createRecordFrom(String line) {
         if (line == null || line.trim().isEmpty()) {
             return null;
         }
@@ -30,6 +28,7 @@ public class CustomerProductDatabase extends Database<CustomerProduct>{
     }
 
 
+    @Override
     public CustomerProduct getRecord(String key) {
         for (CustomerProduct cp : records) {
             if (cp.getSearchKey().equals(key)) {
@@ -39,6 +38,7 @@ public class CustomerProductDatabase extends Database<CustomerProduct>{
         return null;
     }
 
+    @Override
     protected String lineRepresentation(CustomerProduct record){
         return record.lineRepresentation();
     }
