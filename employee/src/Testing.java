@@ -9,7 +9,7 @@ public class Testing {
         Scanner sc = new Scanner(System.in);
         System.out.print("Are you an Admin or an Employee? ");
         String user = sc.nextLine();
-        if(user.equals("Admin")){
+        if(user.equalsIgnoreCase("Admin")){
             AdminRole admin = new AdminRole();
             //print out a menu for the admin role user
             while(true){
@@ -54,7 +54,7 @@ public class Testing {
                 }
             }
         }
-        else if(user.equals("Employee")){
+        else if(user.equalsIgnoreCase("Employee")){
             EmployeeRole employee = new EmployeeRole();
             //print out a menu for the employee role user
             while(true){
