@@ -42,4 +42,10 @@ public class CustomerProduct {
     public String getSearchKey() {
         return customerSSN + "," + productID + "," + purchaseDate.format(formatter);
     }
+
+    @Override
+    public String toString() {
+        return "Customer SSN: " + customerSSN + ", Product ID: " + productID +
+                ", Purchase Date: " + purchaseDate + ", Status: " + paid;
+    }
 }
