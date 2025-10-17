@@ -49,4 +49,11 @@ public class Product {
     public String getSearchKey(){
         return productID;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + productID + ", Product name: " + productName +
+                ", Manufacturer name: " + manufacturerName + ", Supplier name: " + supplierName;
+    }
+
 }
