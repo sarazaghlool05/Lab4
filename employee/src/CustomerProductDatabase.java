@@ -11,7 +11,6 @@ public class CustomerProductDatabase extends Database<CustomerProduct>{
 
     }
 
-
     @Override
     protected CustomerProduct createRecordFrom(String line) {
         if (line == null || line.trim().isEmpty()) {
