@@ -31,9 +31,7 @@ public class AdminRole {
 
     public void removeEmployee(String key){
         database.deleteRecord(key);
-
         database.saveToFile();
-        System.out.println("Employee removed from file successfully");
     }
 
     public void logout(){

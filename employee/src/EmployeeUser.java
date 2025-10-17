@@ -13,10 +13,38 @@ public class EmployeeUser {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public String lineRepresentation(){
         return employeeId+","+name+","+email+","+address+","+phoneNumber;
     }
     public String getSearchKey(){
         return employeeId;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + employeeId + ", Name: " + name +
+                ", Email: " + email + ", Address: " + address +
+                ", Phone: " + phoneNumber;
     }
 }

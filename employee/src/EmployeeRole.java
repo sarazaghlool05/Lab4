@@ -43,7 +43,6 @@ public class EmployeeRole {
                 String[] words = line.trim().split("\\s*,\\s*");
                 Product p = new Product(words[0], words[1], words[2], words[3], Integer.parseInt(words[4]), Float.parseFloat(words[5]));
                 products.add(p);
-                System.out.println("new item added successfully");
             }
         }catch(IOException e){
             System.out.println("Error in reading from file(from class EmployeeRole)");
@@ -66,7 +65,6 @@ public class EmployeeRole {
                 CustomerProduct product = new CustomerProduct(words[0], words[1], date);
                 product.setPaid(Boolean.parseBoolean(words[3]));
                 purchasedProducts.add(product);
-                System.out.println("Purchased product added successfully");
             }
             CustomerProduct[] products = new CustomerProduct[purchasedProducts.size()];
             for(int i = 0; i < purchasedProducts.size(); i++){

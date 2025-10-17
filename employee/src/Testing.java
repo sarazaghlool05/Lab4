@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -6,15 +7,16 @@ import java.util.Scanner;
 public class Testing {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Are you an Admin or an Employee? ");
+        System.out.print("Are you an Admin or an Employee? ");
         String user = sc.nextLine();
         if(user.equals("Admin")){
             AdminRole admin = new AdminRole();
             //print out a menu for the admin role user
             while(true){
-                System.out.println("1.Add Employee\n2.Get List Of Employees\n3.Remove Employee\n4.Log Out");
+                System.out.println("\n1.Add Employee\n2.Get List Of Employees\n3.Remove Employee\n4.Log Out");
                 System.out.print("enter your choice: ");
                 int choiceAdmin = sc.nextInt();
+                System.out.print("\n");
                 sc.nextLine();
                 switch(choiceAdmin){
                     case 1:
@@ -32,6 +34,10 @@ public class Testing {
                         break;
                     case 2:
                         EmployeeUser[] listOfEmployees = admin.getListOfEmployees();
+                        for (int i = 0; i < listOfEmployees.length; i++) {
+                            System.out.println("Data of employee "+(i+1)+":");
+                            System.out.println(listOfEmployees[i].toString());
+                        }
                         break;
                     case 3:
                         System.out.print("enter the id of the employee that you want to remove: ");
@@ -52,9 +58,10 @@ public class Testing {
             EmployeeRole employee = new EmployeeRole();
             //print out a menu for the employee role user
             while(true){
-                System.out.println("1.Add Product\n2.Get List Of Products\n3.Get List Of Purchasing Operations\n4.Purchase Product\n5.Return Product\n6.Apply Payment\n7.Log Out");
+                System.out.println("\n1.Add Product\n2.Get List Of Products\n3.Get List Of Purchasing Operations\n4.Purchase Product\n5.Return Product\n6.Apply Payment\n7.Log Out");
                 System.out.print("Enter your choice: ");
                 int choiceEmployee = sc.nextInt();
+                System.out.print("\n");
                 sc.nextLine();
                 switch(choiceEmployee){
                     case 1:
@@ -76,9 +83,18 @@ public class Testing {
                         break;
                     case 2:
                         Product[] listOfProducts = employee.getListOfProducts();
+                        for (int i = 0; i < listOfProducts.length; i++) {
+                            System.out.println("Data of product "+(i+1)+":");
+                            System.out.println(listOfProducts[i].toString());
+                        }
+
                         break;
                     case 3:
                         CustomerProduct[] listOfPurchasingOperations = employee.getListOfPurchasingOperations();
+                        for (int i = 0; i < listOfPurchasingOperations.length; i++) {
+                            System.out.println("Data of Purchasing Operations "+(i+1)+":");
+                            System.out.println(listOfPurchasingOperations[i].toString());
+                        }
                         break;
                     case 4:
                         System.out.print("enter customerSSN: ");
