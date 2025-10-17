@@ -5,42 +5,64 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Testing {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Are you an Admin or an Employee? ");
         String user = sc.nextLine();
-        if(user.equalsIgnoreCase("Admin")){
+        if (user.equalsIgnoreCase("Admin")) {
             AdminRole admin = new AdminRole();
             //print out a menu for the admin role user
-            while(true){
+            while (true) {
                 System.out.println("\n1.Add Employee\n2.Get List Of Employees\n3.Remove Employee\n4.Log Out");
                 System.out.print("Enter your choice: ");
                 String choiceAdmin = sc.nextLine();
                 System.out.print("\n");
-                switch(choiceAdmin){
+                switch (choiceAdmin) {
                     case "1":
                         System.out.print("Enter employee id: ");
                         String employeeID = sc.nextLine();
+                        if(employeeID.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter employee name: ");
                         String name = sc.nextLine();
+                        if (!validateName(name)) {
+                            break;
+                        }
                         System.out.print("Enter employee email: ");
                         String email = sc.nextLine();
+                        if (!emailValidation(email)) {
+                            break;
+                        }
                         System.out.print("Enter employee address: ");
                         String address = sc.nextLine();
+                        if(address.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter employee phone number: ");
                         String phoneNumber = sc.nextLine();
+                        if(phoneNumber.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         admin.addEmployee(employeeID, name, email, address, phoneNumber);
                         break;
                     case "2":
                         EmployeeUser[] listOfEmployees = admin.getListOfEmployees();
                         for (int i = 0; i < listOfEmployees.length; i++) {
-                            System.out.println("Data of employee "+(i+1)+":");
+                            System.out.println("Data of employee " + (i + 1) + ":");
                             System.out.println(listOfEmployees[i].toString());
                         }
                         break;
                     case "3":
                         System.out.print("Enter the id of the employee that you want to remove: ");
                         String id = sc.nextLine();
+                        if(id.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         admin.removeEmployee(id);
                         break;
                     case "4":
@@ -52,25 +74,40 @@ public class Testing {
                         break;
                 }
             }
-        }
-        else if(user.equalsIgnoreCase("Employee")){
+        } else if (user.equalsIgnoreCase("Employee")) {
             EmployeeRole employee = new EmployeeRole();
             //print out a menu for the employee role user
-            while(true){
+            while (true) {
                 System.out.println("\n1.Add Product\n2.Get List Of Products\n3.Get List Of Purchasing Operations\n4.Purchase Product\n5.Return Product\n6.Apply Payment\n7.Log Out");
                 System.out.print("Enter your choice: ");
                 String choiceEmployee = sc.nextLine();
                 System.out.print("\n");
-                switch(choiceEmployee){
+                switch (choiceEmployee) {
                     case "1":
                         System.out.print("Enter product id: ");
                         String productID = sc.nextLine();
+                        if(productID.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter Product name: ");
                         String productName = sc.nextLine();
+                        if(productName.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter manufacturer name: ");
                         String manufacturerName = sc.nextLine();
+                        if(manufacturerName.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter supplier name: ");
                         String supplierName = sc.nextLine();
+                        if(supplierName.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter product quantity: ");
                         int quantity = sc.nextInt();
                         sc.nextLine();
@@ -82,7 +119,7 @@ public class Testing {
                     case "2":
                         Product[] listOfProducts = employee.getListOfProducts();
                         for (int i = 0; i < listOfProducts.length; i++) {
-                            System.out.println("Data of product "+(i+1)+":");
+                            System.out.println("Data of product " + (i + 1) + ":");
                             System.out.println(listOfProducts[i].toString());
                         }
 
@@ -90,17 +127,29 @@ public class Testing {
                     case "3":
                         CustomerProduct[] listOfPurchasingOperations = employee.getListOfPurchasingOperations();
                         for (int i = 0; i < listOfPurchasingOperations.length; i++) {
-                            System.out.println("Data of Purchasing Operations "+(i+1)+":");
+                            System.out.println("Data of Purchasing Operations " + (i + 1) + ":");
                             System.out.println(listOfPurchasingOperations[i].toString());
                         }
                         break;
                     case "4":
                         System.out.print("Enter customerSSN: ");
                         String customerSSN = sc.nextLine();
+                        if(customerSSN.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter productID: ");
                         String purchasingProductID = sc.nextLine();
+                        if(purchasingProductID.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter purchaseDate: ");
                         String date = sc.nextLine();
+                        if(date.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                         LocalDate localDate = LocalDate.parse(date, formatter);
                         boolean purcahsing = employee.purchaseProduct(customerSSN, purchasingProductID, localDate);
@@ -109,8 +158,16 @@ public class Testing {
                     case "5":
                         System.out.print("Enter customerSSN: ");
                         String returnProductCustomerSSN = sc.nextLine();
+                        if(returnProductCustomerSSN.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter productID: ");
                         String returnProductPurchasingProductID = sc.nextLine();
+                        if(returnProductPurchasingProductID.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter purchase date: ");
                         String purchasingDate = sc.nextLine();
                         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -124,6 +181,10 @@ public class Testing {
                     case "6":
                         System.out.print("Enter customerSSN: ");
                         String paymentCustomerSSN = sc.nextLine();
+                        if(paymentCustomerSSN.isEmpty()){
+                            System.out.println("Input can't be empty!");
+                            break;
+                        }
                         System.out.print("Enter purchase date: ");
                         String purchasingPaymentDate = sc.nextLine();
                         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -140,10 +201,42 @@ public class Testing {
                         break;
                 }
             }
-        }
-        else{
+        } else {
             System.out.println("Unfound user");
             System.exit(0);
         }
+    }
+
+    public static boolean emailValidation(String x) {
+        if(x.isEmpty()){
+            System.out.println("Input can't be empty!");
+            return false;
+        }
+        for (int i = x.length() - 1; i >= 0; i--) {
+            if (x.charAt(i) == '.') {
+                for (int j = i - 1; j >= 0; j--) {
+                    if (x.charAt(j) == '@') {
+                        return true;
+                    }
+                }
+                System.out.println("Error!! Wrong email format.");
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean validateName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            System.out.println("First name cannot be empty!");
+            return false;
+        }
+        name = name.trim();
+        if (!name.matches("[A-Za-z]+")) {
+            System.out.println("First name must contain only letters (no spaces or numbers)!");
+            return false;
+        }
+        return true;
     }
 }
