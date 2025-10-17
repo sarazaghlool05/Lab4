@@ -1,12 +1,9 @@
-import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
 
 //written by sara zaghlool on wednesday 15/10
-public class EmployeeRole {
+public class EmployeeRole extends UserRole{
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
 
@@ -128,6 +125,7 @@ public class EmployeeRole {
     }
 
     //written by sara zaghlool on friday 16/10
+    @Override
     public void logout() {
         productsDatabase.saveToFile();
         customerProductDatabase.saveToFile();

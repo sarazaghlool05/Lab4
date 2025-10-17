@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 //written by Sara Mohamed on Thursday 10/16/2025 @1:30pm
-public class AdminRole {
+public class AdminRole extends UserRole{
     private EmployeeUserDatabase database;
 
     public AdminRole(){
@@ -42,6 +42,7 @@ public class AdminRole {
         database.saveToFile();
     }
 
+    @Override
     public void logout(){
         database.saveToFile();
         System.out.println("All data saved to file successfully");
