@@ -1,5 +1,5 @@
 //written by Sara Mohamed on wednesday 10/15/2025 @3pm
-public class EmployeeUser {
+public class EmployeeUser implements Record{
     private String employeeId;
     private String name;
     private String email;
@@ -33,30 +33,11 @@ public class EmployeeUser {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
+@Override
     public String lineRepresentation(){
         return employeeId+","+name+","+email+","+address+","+phoneNumber;
     }
+    @Override
     public String getSearchKey(){
         return employeeId;
     }
