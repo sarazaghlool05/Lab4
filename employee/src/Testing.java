@@ -82,6 +82,7 @@ public class Testing {
                         String purchasingProductID = sc.nextLine();
                         System.out.print("enter purchaseDate: ");
                         String date = sc.nextLine();
+                        
                         System.out.print("enter supplier name: ");
                         String supplierName = sc.nextLine();
                 }
