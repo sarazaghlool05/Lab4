@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 //written by sara zaghlool on wednesday 15/10
-public class EmployeeRole extends UserRole{
+public class EmployeeRole {
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
 
@@ -125,7 +125,6 @@ public class EmployeeRole extends UserRole{
     }
 
     //written by sara zaghlool on friday 16/10
-    @Override
     public void logout() {
         productsDatabase.saveToFile();
         customerProductDatabase.saveToFile();
