@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 //written by Bassant on wednesday 15/10 @23:50
-public class ProductDatabase extends Database<Product> {
+public class   ProductDatabase extends Database<Product> {
 
     public ProductDatabase(String filename) {
         super(filename);
@@ -35,7 +35,9 @@ public class ProductDatabase extends Database<Product> {
         }
         return null;
     }
-    protected  public String lineRepresentation(Product p){
-        return productID+","+productName+","+manufacturerName+","+supplierName+","+quantity+","+price;
+    protected String lineRepresentation(Product p) {
+        return p.getSearchKey() + "," + p.getProductName() + "," +
+                p.getManufacturerName() + "," + p.getSupplierName() + "," +
+                p.getQuantity() + "," + p.getPrice();
     }
 }

@@ -48,4 +48,49 @@ public abstract class Database<T> {
     public ArrayList<T> returnAllRecords() {
         return records;
     }
+    public static void main(String[] args) {
+        ProductDatabase db = new ProductDatabase("products.txt");
+
+        // Insert a few sample products
+        db.insertRecord(new Product("P001", "Shampoo", "Dove", "Unilever", 100, 25.5f));
+        db.insertRecord(new Product("P002", "Soap", "Lux", "Unilever", 200, 12.0f));
+        db.insertRecord(new Product("P003", "Toothpaste", "Colgate", "P&G", 150, 18.75f));
+
+        // Save all records to file
+        db.saveToFile();
+        System.out.println("✅ Products saved to file.");
+
+        // Clear memory and reload from file
+        db.returnAllRecords().clear();
+        db.readFromFile();
+
+        // Display all records
+        System.out.println("\n📦 All Products from File:");
+        for (Product p : db.returnAllRecords()) {
+            System.out.println(
+                    p.getSearchKey() + " | " +
+                            p.getProductName() + " | " +
+                            p.getManufacturerName() + " | " +
+                            p.getSupplierName() + " | Qty: " +
+                            p.getQuantity() + " | Price: " +
+                            p.getPrice());
+        }
+
+        // Test getRecord
+        System.out.println("\n🔍 Searching for product P002...");
+        Product found = db.getRecord("P002");
+        if (found != null)
+            System.out.println("Found: " + found.getProductName() + " - Price: " + found.getPrice());
+        else
+            System.out.println("Product not found!");
+
+        // Test deleteRecord
+        db.deleteRecord("P003");
+        System.out.println("\n🗑️ After deleting P003:");
+        for (Product p : db.returnAllRecords()) {
+            System.out.println(p.getSearchKey() + " - " + p.getProductName());
+        }
+        db.saveToFile();
+    }
+
 }
