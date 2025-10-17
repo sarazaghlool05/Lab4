@@ -7,6 +7,23 @@ public abstract class Database<T> {
         this.filename = filename;
         this.records = new ArrayList<>();
     }
+
+    public ArrayList<T> getRecords() {
+        return records;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setRecords(ArrayList<T> records) {
+        this.records = records;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     protected abstract T createRecordFrom(String line);
     protected abstract String lineRepresentation(T record);
     public abstract T getRecord(String key);
