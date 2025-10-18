@@ -5,16 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb81265e-3e6d-4971-9b6c-e1b002da27e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Employees.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Employees.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/EmployeeUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/EmployeeUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee/src/EmployeeUserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/EmployeeUserDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/employee/src/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/employee/src/Testing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab4/AdminRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab4/AdminRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab4/EmployeeUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab4/EmployeeUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab4/EmployeeUserDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab4/EmployeeUserDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab4/Testing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab4/Testing.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sarazaghlool05/Lab4.git",
+    "accountId": "6d235eb4-c6c8-4651-ad76-517ef4b9fdaf"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "sarazaghlool05",
+    "repository": "Lab4"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -28,7 +59,7 @@
     "Application.Testing.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Testing-polymorphism",
+    "git-widget-placeholder": "#23 on Testing-polymorphism",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,5 +103,15 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
