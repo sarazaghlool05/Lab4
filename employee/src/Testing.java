@@ -46,8 +46,7 @@ public class Testing {
                         }
                         System.out.print("Enter employee phone number: ");
                         String phoneNumber = sc.nextLine();
-                        if(phoneNumber.isEmpty()){
-                            System.out.println("Input can't be empty!");
+                        if(!validatePhoneNumber(phoneNumber)){
                             break;
                         }
                         admin.addEmployee(employeeID, name, email, address, phoneNumber);
@@ -239,4 +238,18 @@ public class Testing {
         }
         return true;
     }
+    public static boolean validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
+            System.out.println("Phone number cannot be empty!");
+            return false;
+        }
+        phoneNumber = phoneNumber.trim();
+        if (!phoneNumber.matches("\\d+")) {
+            System.out.println("Phone number must contain only digits!");
+            return false;
+        }
+
+        return true;
+    }
+
 }

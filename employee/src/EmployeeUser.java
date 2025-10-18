@@ -33,7 +33,28 @@ public class EmployeeUser implements Record{
     public String getPhoneNumber() {
         return phoneNumber;
     }
-@Override
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
     public String lineRepresentation(){
         return employeeId+","+name+","+email+","+address+","+phoneNumber;
     }
