@@ -41,7 +41,8 @@ public class Testing {
                             System.out.println("\u001B[32mEmployee added successfully!\u001B[0m");
                         } catch (IllegalArgumentException e) {
                             System.out.println("\u001B[31mFailed to add employee: " + e.getMessage()+"\u001B[0m");
-                            System.out.println("Please correct the errors and try again.\n");
+                            //System.out.println("Please correct the errors and try again.\n");
+                            System.exit(0);
                         }
                         break;
                     case "2":
@@ -107,7 +108,7 @@ public class Testing {
                         int quantity = sc.nextInt();
                         sc.nextLine();
                         System.out.print("Enter product price: ");
-                        int price = sc.nextInt();
+                        float price = sc.nextInt();
                         sc.nextLine();
                         employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
                         break;
