@@ -41,8 +41,7 @@ public class Testing {
                             System.out.println("\u001B[32mEmployee added successfully!\u001B[0m");
                         } catch (IllegalArgumentException e) {
                             System.out.println("\u001B[31mFailed to add employee: " + e.getMessage()+"\u001B[0m");
-                            //System.out.println("Please correct the errors and try again.\n");
-                            System.exit(0);
+                            System.out.println("Please correct the errors and try again.\n");
                         }
                         break;
                     case "2":
