@@ -13,34 +13,34 @@ public class EmployeeUser implements Record {
         this.employeeId = employeeId;
 
         if (validate) {
-            if (validate) {
-                // collect all errors first
-                StringBuilder errors = new StringBuilder();
+            // collect all errors first
+            StringBuilder errors = new StringBuilder();
 
-                if (!ValidationUtils.validateName(name))
-                    errors.append("Name must contain only letters and not be empty.\n");
-                else
-                    this.name = name;
+            if (!ValidationUtils.validateName(name))
+                errors.append("Name must contain only letters and not be empty.\n");
+            else
+                this.name = name;
 
-                if (!ValidationUtils.emailValidation(email))
-                    errors.append("Invalid email format.\n");
-                else
-                    this.email = email;
+            if (!ValidationUtils.emailValidation(email))
+                errors.append("Invalid email format.\n");
+            else
+                this.email = email;
 
-                if (address == null || address.trim().isEmpty())
-                    errors.append("Address cannot be empty.\n");
-                else
-                    this.address = address;
+            if (address == null || address.trim().isEmpty())
+                errors.append("Address cannot be empty.\n");
+            else
+                this.address = address;
 
-                if (!ValidationUtils.validatePhoneNumber(phoneNumber))
-                    errors.append("Phone number must contain only digits and not be empty.\n");
-                else
-                    this.phoneNumber = phoneNumber;
+            if (!ValidationUtils.validatePhoneNumber(phoneNumber))
+                errors.append("Phone number must contain only digits and not be empty.\n");
+            else
+                this.phoneNumber = phoneNumber;
 
-                if (errors.length() > 0) {
-                    System.out.println("\u001B[31m Errors found:\u001B[0m\n" + errors);
-                    throw new IllegalArgumentException("Invalid employee details!");
-                }
+            if (errors.length() > 0) {
+                System.out.println("\u001B[31m Errors found:\u001B[0m\n" + errors);
+                throw new IllegalArgumentException("Invalid employee details!");
+            }
+
             } else {
                 this.name = name;
                 this.email = email;
@@ -48,7 +48,6 @@ public class EmployeeUser implements Record {
                 this.phoneNumber = phoneNumber;
             }
         }
-    }
         public String getEmployeeId () {
             return employeeId;
         }

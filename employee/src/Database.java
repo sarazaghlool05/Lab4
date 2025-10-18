@@ -49,6 +49,15 @@ public abstract class Database<T extends Record> {
             System.out.println("Error saving to file: " + filename);
         }
     }
+    public void appendToFile(T record) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {
+            if (record != null) { String line = lineRepresentation(record);
+                if (line != null && !line.trim().isEmpty()) {
+                    writer.println(line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error appending to file: " + filename); } }
     public void insertRecord(T record) {
         records.add(record);
     }
