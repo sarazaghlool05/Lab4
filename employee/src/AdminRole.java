@@ -9,12 +9,10 @@ public class AdminRole {
         database.readFromFile(); //loads employees from file
     }
 
-    public void addEmployee(String employeeId, String name, String email,
-                            String address, String phoneNumber){
+    public void addEmployee(String employeeId, String name, String email, String address, String phoneNumber){
         EmployeeUser employee = new EmployeeUser(employeeId,name,email,address,phoneNumber);
         database.insertRecord(employee);
-
-        database.saveToFile();
+        database.appendToFile(employee);
         System.out.println("Employee saved to file successfully");
     }
 

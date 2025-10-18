@@ -107,7 +107,7 @@ public class Testing {
                         int quantity = sc.nextInt();
                         sc.nextLine();
                         System.out.print("Enter product price: ");
-                        int price = sc.nextInt();
+                        float price = sc.nextInt();
                         sc.nextLine();
                         employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
                         break;
