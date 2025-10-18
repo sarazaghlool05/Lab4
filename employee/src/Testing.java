@@ -5,6 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Testing {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Are you an Admin or an Employee? ");
@@ -150,7 +153,6 @@ public class Testing {
                             System.out.println("Input can't be empty!");
                             break;
                         }
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                         LocalDate localDate = LocalDate.parse(date, formatter);
                         boolean purcahsing = employee.purchaseProduct(customerSSN, purchasingProductID, localDate);
                         System.out.println("Purchasing: " + purcahsing);
@@ -170,11 +172,10 @@ public class Testing {
                         }
                         System.out.print("Enter purchase date: ");
                         String purchasingDate = sc.nextLine();
-                        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                        LocalDate localPurchasingDate = LocalDate.parse(purchasingDate, formatter2);
+                        LocalDate localPurchasingDate = LocalDate.parse(purchasingDate, formatter);
                         System.out.print("Enter return date: ");
                         String returningDate = sc.nextLine();
-                        LocalDate localReturningDate = LocalDate.parse(returningDate, formatter2);
+                        LocalDate localReturningDate = LocalDate.parse(returningDate, formatter);
                         double priceOfItem = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
                         System.out.println("Price: " + priceOfItem);
                         break;
@@ -187,8 +188,7 @@ public class Testing {
                         }
                         System.out.print("Enter purchase date: ");
                         String purchasingPaymentDate = sc.nextLine();
-                        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                        LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate, formatter3);
+                        LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate, formatter);
                         boolean payment = employee.applyPayment(paymentCustomerSSN, localPurchasingPaymentDate);
                         System.out.println("Payment: " + payment);
                         break;
