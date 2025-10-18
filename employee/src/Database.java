@@ -42,13 +42,15 @@ public abstract class Database<T extends Record> {
     }
     public void saveToFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
-            for (T record : records) {
+            for (int i = 0; i < records.size(); i++) {
+                T record = records.get(i);
                 writer.println(lineRepresentation(record));
             }
         } catch (IOException e) {
             System.out.println("Error saving to file: " + filename);
         }
     }
+
     public void appendToFile(T record) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {
             if (record != null) { String line = lineRepresentation(record);
