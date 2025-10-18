@@ -28,28 +28,21 @@ public class Testing {
                             System.out.println("Input can't be empty!");
                             break;
                         }
-                        System.out.print("Enter employee name: ");
+                        System.out.print("Enter employee name (Name must contain letters only) : ");
                         String name = sc.nextLine();
-                        if (!validateName(name)) {
-                            break;
-                        }
-                        System.out.print("Enter employee email: ");
+                        System.out.print("Enter employee email (Email must include ('.') and ('@')): ");
                         String email = sc.nextLine();
-                        if (!emailValidation(email)) {
-                            break;
-                        }
                         System.out.print("Enter employee address: ");
                         String address = sc.nextLine();
-                        if(address.isEmpty()){
-                            System.out.println("Input can't be empty!");
-                            break;
-                        }
-                        System.out.print("Enter employee phone number: ");
+                        System.out.print("Enter employee phone number (Phone number must have digits only(0-9)): ");
                         String phoneNumber = sc.nextLine();
-                        if(!validatePhoneNumber(phoneNumber)){
-                            break;
+                        try {
+                            admin.addEmployee(employeeID, name, email, address, phoneNumber);
+                            System.out.println("\u001B[32mEmployee added successfully!\u001B[0m");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("\u001B[31mFailed to add employee: " + e.getMessage()+"\u001B[0m");
+                            System.out.println("Please correct the errors and try again.\n");
                         }
-                        admin.addEmployee(employeeID, name, email, address, phoneNumber);
                         break;
                     case "2":
                         EmployeeUser[] listOfEmployees = admin.getListOfEmployees();
@@ -204,52 +197,6 @@ public class Testing {
             System.out.println("Unfound user");
             System.exit(0);
         }
-    }
-
-    public static boolean emailValidation(String x) {
-        if(x.isEmpty()){
-            System.out.println("Input can't be empty!");
-            return false;
-        }
-        for (int i = x.length() - 1; i >= 0; i--) {
-            if (x.charAt(i) == '.') {
-                for (int j = i - 1; j >= 0; j--) {
-                    if (x.charAt(j) == '@') {
-                        return true;
-                    }
-                }
-                System.out.println("Error!! Wrong email format.");
-                return false;
-            }
-        }
-
-        return false;
-    }
-
-    public static boolean validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            System.out.println("First name cannot be empty!");
-            return false;
-        }
-        name = name.trim();
-        if (!name.matches("[A-Za-z]+")) {
-            System.out.println("First name must contain only letters (no spaces or numbers)!");
-            return false;
-        }
-        return true;
-    }
-    public static boolean validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
-            System.out.println("Phone number cannot be empty!");
-            return false;
-        }
-        phoneNumber = phoneNumber.trim();
-        if (!phoneNumber.matches("\\d+")) {
-            System.out.println("Phone number must contain only digits!");
-            return false;
-        }
-
-        return true;
     }
 
 }

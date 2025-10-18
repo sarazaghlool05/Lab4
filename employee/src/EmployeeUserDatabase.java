@@ -23,8 +23,7 @@ public class EmployeeUserDatabase extends Database<EmployeeUser>{
         String address = parts[3];
         String phoneNumber = parts[4];
 
-        EmployeeUser employee = new EmployeeUser(employeeId, name, email, address, phoneNumber);
-        return employee;
+        return new EmployeeUser(employeeId, name, email, address, phoneNumber, false);
     }
 
     public EmployeeUser getRecord(String key){
