@@ -106,10 +106,7 @@ public class Testing {
                         System.out.print("Enter product quantity: ");
                         int quantity = sc.nextInt();
                         sc.nextLine();
-                        System.out.print("Enter product price: ");
-                        float price = sc.nextInt();
-                        sc.nextLine();
-                        employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
+                        employee.addProduct(productID, productName, manufacturerName, supplierName, quantity);
                         break;
                     case "2":
                         Product[] listOfProducts = employee.getListOfProducts();

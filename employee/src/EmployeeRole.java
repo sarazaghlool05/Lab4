@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
     private CustomerProductDatabase customerProductDatabase;
+    private static final float default_price = 500;
 
     public ProductDatabase getProductsDatabase() {
         return productsDatabase;
@@ -32,13 +33,13 @@ public class EmployeeRole {
 
     //written by sara zaghlool on wednesday 15/10
     //adding a new product to the file
-    public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity, float price) {
+    public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity) {
         //ask why the price is not included in the function on the lab4 pdf
         if (productsDatabase.contains(productID)) {
             System.out.println("Product already exists!");
             return;
         }
-        Product p = new Product(productID, productName, manufacturerName, supplierName, quantity, price);
+        Product p = new Product(productID, productName, manufacturerName, supplierName, quantity, default_price);
         productsDatabase.insertRecord(p);
         productsDatabase.saveToFile();
         System.out.println("Product added successfully");
