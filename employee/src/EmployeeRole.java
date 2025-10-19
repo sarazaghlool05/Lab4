@@ -34,7 +34,6 @@ public class EmployeeRole {
     //written by sara zaghlool on wednesday 15/10
     //adding a new product to the file
     public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity) {
-        //ask why the price is not included in the function on the lab4 pdf
         if (productsDatabase.contains(productID)) {
             System.out.println("Product already exists!");
             return;
