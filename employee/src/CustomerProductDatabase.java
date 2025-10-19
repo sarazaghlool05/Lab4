@@ -29,14 +29,14 @@ public class CustomerProductDatabase extends Database<CustomerProduct>{
 
     @Override
     public CustomerProduct getRecord(String key) {
-        for (CustomerProduct cp : records) {
+        for (int i = 0; i < records.size(); i++) {
+            CustomerProduct cp = records.get(i);
             if (cp.getSearchKey().equals(key)) {
                 return cp;
             }
         }
         return null;
     }
-
     @Override
     protected String lineRepresentation(CustomerProduct record){
         return record.lineRepresentation();
