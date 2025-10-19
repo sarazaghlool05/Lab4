@@ -38,7 +38,6 @@ public class Testing {
                         String phoneNumber = sc.nextLine();
                         try {
                             admin.addEmployee(employeeID, name, email, address, phoneNumber);
-                            System.out.println("\u001B[32mEmployee added successfully!\u001B[0m");
                         } catch (IllegalArgumentException e) {
                             System.out.println("\u001B[31mFailed to add employee: " + e.getMessage()+"\u001B[0m");
                             System.out.println("Please correct the errors and try again.\n");
@@ -106,7 +105,18 @@ public class Testing {
                         System.out.print("Enter product quantity: ");
                         int quantity = sc.nextInt();
                         sc.nextLine();
-                        employee.addProduct(productID, productName, manufacturerName, supplierName, quantity);
+                        System.out.print("Do you want to set the price (true/false)? ");
+                        boolean setPrice = sc.nextBoolean();
+                        sc.nextLine();
+                        if(setPrice){
+                            System.out.print("enter price: ");
+                            float price = sc.nextFloat();
+                            sc.nextLine();
+                            employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
+                        }
+                        else{
+                            employee.addProduct(productID, productName, manufacturerName, supplierName, quantity);
+                        }
                         break;
                     case "2":
                         Product[] listOfProducts = employee.getListOfProducts();
@@ -166,7 +176,9 @@ public class Testing {
                         String returningDate = sc.nextLine();
                         LocalDate localReturningDate = LocalDate.parse(returningDate, formatter);
                         double priceOfItem = employee.returnProduct(returnProductCustomerSSN, returnProductPurchasingProductID, localPurchasingDate, localReturningDate);
-                        System.out.println("Price: " + priceOfItem);
+                        if(priceOfItem != -1){
+                            System.out.println("Price: " + priceOfItem);
+                        }
                         break;
                     case "6":
                         System.out.print("Enter customerSSN: ");
@@ -179,7 +191,9 @@ public class Testing {
                         String purchasingPaymentDate = sc.nextLine();
                         LocalDate localPurchasingPaymentDate = LocalDate.parse(purchasingPaymentDate, formatter);
                         boolean payment = employee.applyPayment(paymentCustomerSSN, localPurchasingPaymentDate);
-                        System.out.println("Payment: " + payment);
+                        if(payment){
+                            System.out.println("Payment: " + payment);
+                        }
                         break;
                     case "7":
                         employee.logout();

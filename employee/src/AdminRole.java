@@ -10,6 +10,10 @@ public class AdminRole {
     }
 
     public void addEmployee(String employeeId, String name, String email, String address, String phoneNumber){
+        if(database.contains(employeeId)){
+            System.out.println("employee already exists");
+            return;
+        }
         EmployeeUser employee = new EmployeeUser(employeeId,name,email,address,phoneNumber);
         database.insertRecord(employee);
         database.appendToFile(employee);
