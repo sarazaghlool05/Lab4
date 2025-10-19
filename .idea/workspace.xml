@@ -54,10 +54,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Testing.executor": "Run",
+    "Application.Testing.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Testing-polymorphism",
+    "git-widget-placeholder": "testin__part__one",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,6 +96,8 @@
       <option name="presentableId" value="Default" />
       <updated>1760776076554</updated>
       <workItem from="1760776078529" duration="1625000" />
+      <workItem from="1760828395890" duration="12000" />
+      <workItem from="1760899724656" duration="239000" />
     </task>
     <servers />
   </component>

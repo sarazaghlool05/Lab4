@@ -6,6 +6,8 @@ public class Product implements Record {
     private String supplierName;
     private int  quantity;
     private float  price;
+    private static final float default_price = 500;
+
     public Product(String productID, String productName, String manufacturerName, String
             supplierName, int quantity, float price){
         this.productID=productID;
@@ -57,7 +59,12 @@ public class Product implements Record {
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if(price > 0){
+            this.price = price;
+        }
+        else {
+            this.price = default_price;
+        }
     }
 
     public void setQuantity(int quantity) {

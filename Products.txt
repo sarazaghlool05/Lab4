@@ -1,1 +1,1 @@
-bad file without commas
+P2394,Laptop,Apple,TechSupplier,9,1500.0
