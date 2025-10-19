@@ -45,6 +45,16 @@ public class EmployeeRole {
         System.out.println("Product added successfully");
     }
 
+    //overloaded addproduct
+    public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity, float price){
+        addProduct(productID, productName, manufacturerName, supplierName, quantity);
+        Product p = productsDatabase.getRecord(productID);
+        if(p != null){
+            p.setPrice(price);
+            productsDatabase.saveToFile();
+        }
+    }
+
     //written by sara zaghlool on wednesday 15/10
     public Product[] getListOfProducts(){
         return productsDatabase.returnAllRecords().toArray(new Product[0]);

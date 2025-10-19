@@ -105,7 +105,18 @@ public class Testing {
                         System.out.print("Enter product quantity: ");
                         int quantity = sc.nextInt();
                         sc.nextLine();
-                        employee.addProduct(productID, productName, manufacturerName, supplierName, quantity);
+                        System.out.print("Do you want to set the price (true/false)? ");
+                        boolean setPrice = sc.nextBoolean();
+                        sc.nextLine();
+                        if(setPrice){
+                            System.out.print("enter price: ");
+                            float price = sc.nextFloat();
+                            sc.nextLine();
+                            employee.addProduct(productID, productName, manufacturerName, supplierName, quantity, price);
+                        }
+                        else{
+                            employee.addProduct(productID, productName, manufacturerName, supplierName, quantity);
+                        }
                         break;
                     case "2":
                         Product[] listOfProducts = employee.getListOfProducts();
