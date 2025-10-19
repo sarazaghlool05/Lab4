@@ -1,5 +1,1 @@
-P2394,Laptop,Apple,TechSupplier,9,1500.0
-P2668,phone,apple,techSupplier,6,25000.0
-P1000,Shampoo,Johnson,Fathala,100,500.0
-1300,beso,beso,beso,100,1000.0
-1234,sdfg,asdf,xfg,12,12.0
+bad file without commas
