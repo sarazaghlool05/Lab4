@@ -83,16 +83,24 @@ public class EmployeeRole {
 
     //written by sara zaghlool on friday 16/10
     public double returnProduct(String customerSSN, String productID, LocalDate purchaseDate , LocalDate returnDate){
-        if (returnDate.isBefore(purchaseDate) || ChronoUnit.DAYS.between(purchaseDate, returnDate) > 14)
+        if (returnDate.isBefore(purchaseDate) || ChronoUnit.DAYS.between(purchaseDate, returnDate) >= 14){
+            System.out.println("Wrong date or more than 14 days has already passed");
             return -1;
+        }
         DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String key = customerSSN + "," + productID + "," +
                 purchaseDate.format(formatter);
         CustomerProduct record = customerProductDatabase.getRecord(key);
-        if (record == null) return -1;
+        if (record == null){
+            System.out.println("Purchase operation not found!");
+            return -1;
+        }
 
         Product product = productsDatabase.getRecord(productID);
-        if (product == null) return -1;
+        if (product == null) {
+            System.out.println("Product not found!");
+            return -1;
+        }
 
         // Increase quantity and save
         product.setQuantity(product.getQuantity() + 1);
@@ -111,7 +119,8 @@ public class EmployeeRole {
         String dateKey = purchaseDate.format(formatter);
 
         boolean updated = false;
-        for (CustomerProduct c : customerProductDatabase.returnAllRecords()) {
+        for(int i = 0; i < customerProductDatabase.records.size(); i++){
+            CustomerProduct c = customerProductDatabase.returnAllRecords().get(i);
             if (c.getCustomerSSN().equals(customerSSN)
                     && c.getPurchaseDate().format(formatter).equals(dateKey)
                     && !c.isPaid()) {
@@ -122,6 +131,9 @@ public class EmployeeRole {
         }
 
         if (updated) customerProductDatabase.saveToFile();
+        else{
+            System.out.println("An error happened or payment already done!");
+        }
         return updated;
     }
 
